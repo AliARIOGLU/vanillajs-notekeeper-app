@@ -9,7 +9,7 @@ import { findNote, generateID } from "./utils.js";
 let notekeeperDB = {};
 
 /*
-    Initializes a local database. If the dat exists in local storage, it is loaded
+    Initializes a local database. If the data exists in local storage, it is loaded
     otherwise a new empty database structure is created and stored.
 */
 

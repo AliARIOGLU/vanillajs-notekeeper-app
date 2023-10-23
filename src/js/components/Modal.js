@@ -161,6 +161,15 @@ const DeleteConfirmModal = function (title) {
     );
   };
 
+  // Close the modal for press Escape
+
+  window.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      open();
+      close();
+    }
+  });
+
   return { open, close, onSubmit };
 };
 

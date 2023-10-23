@@ -25,11 +25,11 @@ const getGreetingMsg = function (currentHour) {
   return `Good ${greeting}`;
 };
 
-let lastActiveNavItem;
-
 /*
-  Activates a navigation item by adding the 'active' class and deactives the prev. active item.
+Activates a navigation item by adding the 'active' class and deactives the prev. active item.
 */
+
+let lastActiveNavItem;
 
 const activeNotebook = function () {
   lastActiveNavItem?.classList.remove("active");

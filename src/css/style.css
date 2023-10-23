@@ -620,7 +620,7 @@ body {
 
 @keyframes modal-open {
   0% {
-    transform: translate(-50%, calc(-50% + var(--spacing-5)));
+    transform: translate(-50%, -150%);
     opacity: 0;
     visibility: hidden;
   }
