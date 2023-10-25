@@ -105,7 +105,7 @@ export const client = {
     */
 
     create(noteData) {
-      // Clear 'emptyNoteTemplat' from 'notePanel' if there is no note exists
+      // Clear 'emptyNoteTemplate' from 'notePanel' if there is no note exists
 
       if (!notePanel.querySelector("[data-note]")) {
         notePanel.innerHTML = "";

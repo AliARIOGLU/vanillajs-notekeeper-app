@@ -1,7 +1,5 @@
 "use strict";
 
-import { generateID } from "../utils.js";
-
 const overlay = document.createElement("div");
 overlay.classList.add("overlay", "modal-overlay");
 
@@ -17,6 +15,7 @@ const NoteModal = function (
 ) {
   const modal = document.createElement("div");
   modal.classList.add("modal");
+  modal.dataset.type = "notemodal";
 
   modal.innerHTML = `
     <button class="icon-btn large" aria-label="Close modal" data-close-btn>
@@ -97,6 +96,15 @@ const NoteModal = function (
     });
   };
 
+  if (modal.dataset.type === "notemodal") {
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        open();
+        close();
+      }
+    });
+  }
+
   return { open, close, onSubmit };
 };
 
@@ -105,6 +113,10 @@ const NoteModal = function (
 const DeleteConfirmModal = function (title) {
   const modal = document.createElement("div");
   modal.classList.add("modal");
+  modal.dataset.type = "deletemodal";
+
+  const temp = document.createElement("span");
+  temp.classList.add("temp");
 
   modal.innerHTML = `
     <h3 class="modal-title text-title-medium">
@@ -161,14 +173,14 @@ const DeleteConfirmModal = function (title) {
     );
   };
 
-  // Close the modal for press Escape
-
-  window.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-      open();
-      close();
-    }
-  });
+  if (modal.dataset.type === "deletemodal") {
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        open();
+        close();
+      }
+    });
+  }
 
   return { open, close, onSubmit };
 };
